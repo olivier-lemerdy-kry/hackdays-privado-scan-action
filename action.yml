@@ -8,6 +8,8 @@ inputs:
 runs:
   using: composite
   steps:
+    - run: echo "Will upload scan to dashboard -> ${{ github.event.inputs.upload }}"
+      shell: bash
     - run: curl -o- https://raw.githubusercontent.com/Privado-Inc/privado-cli/main/install.sh | bash
       shell: bash
     - run: $HOME/.privado/bin/privado scan ${{ github.workspace }} --skip-upload
