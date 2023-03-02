@@ -12,3 +12,6 @@ runs:
       shell: bash
     - run: $HOME/.privado/bin/privado scan ${{ github.workspace }} --skip-upload
       shell: bash
+    - run: $HOME/.privado/bin/privado upload
+      shell: bash
+      if: ${{ github.event.inputs.upload == 'true' }}
