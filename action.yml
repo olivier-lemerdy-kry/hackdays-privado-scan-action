@@ -4,11 +4,11 @@ inputs:
   upload:
     description: Whether to upload the scan to Privado Dashboard
     required: false
-    default: 'false'
+    default: ${{ false }}
 runs:
   using: composite
   steps:
-    - run: echo "Will upload scan to dashboard -> ${{ github.event.inputs.upload }}"
+    - run: echo "Will upload scan to dashboard -> ${{ inputs.upload }}"
       shell: bash
     - run: curl -o- https://raw.githubusercontent.com/Privado-Inc/privado-cli/main/install.sh | bash
       shell: bash
@@ -16,4 +16,4 @@ runs:
       shell: bash
     - run: $HOME/.privado/bin/privado upload ${{ github.workspace }}
       shell: bash
-      if: ${{ github.event.inputs.upload == 'true' }}
+      if: ${{ inputs.upload == 'true' }}
