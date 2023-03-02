@@ -6,3 +6,4 @@ runs:
     - run: curl -o- https://raw.githubusercontent.com/Privado-Inc/privado-cli/main/install.sh | bash
       shell: bash
     - run: privado scan ${{ github.workspace }}
+      shell: bash
