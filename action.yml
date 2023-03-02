@@ -1,0 +1,8 @@
+name: 'Privado Scan'
+description: 'Run a Privado scan'
+runs:
+  using: composite
+  steps:
+    - run: curl -o- https://raw.githubusercontent.com/Privado-Inc/privado-cli/main/install.sh | bash
+      shell: bash
+    - run: privado scan ${{ github.workspace }}
